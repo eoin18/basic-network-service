@@ -7,7 +7,7 @@ A basic network service which can run on two nodes.
 - The functional service handles the requests from the client facing service and performs the business logic (In this simple case - an arithmetic evaluation)
 
 
-###How to run
+### How to run
 ```
 ./gradlew clean shadowJar
 ```

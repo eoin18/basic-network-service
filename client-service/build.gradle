@@ -11,6 +11,7 @@ buildscript {
 }
 
 apply plugin: 'com.github.johnrengelman.shadow'
+apply plugin: 'application'
 
 mainClassName = 'io.emccarthy.clientservice.ClientServiceApplication'
 
