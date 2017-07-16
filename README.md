@@ -1,6 +1,10 @@
 Basic Network Service
 =====================
 
+[![Build Status](https://travis-ci.org/eoin18/basic-network-service.svg?branch=master)](https://travis-ci.org/eoin18/basic-network-service)
+
+[![codecov](https://codecov.io/gh/eoin18/basic-network-service/branch/master/graph/badge.svg)](https://codecov.io/gh/eoin18/basic-network-service)
+
 A basic network service which can run on two nodes. 
 
 - One node serves requests from a client and does some sanitation on the requests, before serving them to the functional service

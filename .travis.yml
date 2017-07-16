@@ -4,7 +4,6 @@ jdk:
 before_install:
   - chmod +x gradlew
 script:
-  - ./gradlew clean
   - ./gradlew test
   - ./gradlew codeCoverageReport
 after_success:
