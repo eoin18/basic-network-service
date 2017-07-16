@@ -1,9 +1,9 @@
 package io.emccarthy.clientservice.function;
 
-import io.emccarthy.clientservice.api.Expression;
-import io.emccarthy.clientservice.api.ExpressionResult;
 import io.emccarthy.clientservice.function.exception.FunctionServiceConnectionException;
 import io.emccarthy.clientservice.function.exception.FunctionServiceResponseException;
+import io.emccarthy.common.api.Expression;
+import io.emccarthy.common.api.ExpressionResult;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.StatusLine;
@@ -41,7 +41,7 @@ public class OnlineFunctionServiceInterfaceTest {
     public void setUp() throws Exception {
         MockitoAnnotations.initMocks(this);
         HttpEntity mockHttpEntity = mock(HttpEntity.class);
-        when(this.mockStatusLine.getStatusCode()).thenReturn(200);
+        when(this.mockStatusLine.getStatusCode()).thenReturn(201);
         when(mockHttpEntity.getContent()).thenReturn(Thread.currentThread().getContextClassLoader().getResourceAsStream("references/expressionResponse.json"));
         when(this.mockHttpResponse.getEntity()).thenReturn(mockHttpEntity);
         when(this.mockHttpResponse.getStatusLine()).thenReturn(mockStatusLine);

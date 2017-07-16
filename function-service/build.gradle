@@ -12,10 +12,12 @@ buildscript {
 
 apply plugin: 'com.github.johnrengelman.shadow'
 
-mainClassName = 'io.emccarthy.clientservice.ClientServiceApplication'
+mainClassName = 'io.emccarthy.functionservice.FunctionServiceApplication'
 
 dependencies {
-    compile project(':common-service-model')
+    compile project (":common-service-model")
 }
 
-
+shadowJar {
+    mergeServiceFiles()
+}

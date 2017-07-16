@@ -1,4 +1,4 @@
-package io.emccarthy.clientservice.api;
+package io.emccarthy.common.api;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.apache.commons.lang3.builder.EqualsBuilder;

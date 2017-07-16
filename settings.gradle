@@ -1,0 +1,3 @@
+rootProject.name = 'basic-network-service'
+include 'client-service', 'function-service', 'common-service-model'
+

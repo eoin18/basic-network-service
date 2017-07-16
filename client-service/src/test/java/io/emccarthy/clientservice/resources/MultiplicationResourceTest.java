@@ -1,15 +1,13 @@
 package io.emccarthy.clientservice.resources;
 
 import io.dropwizard.testing.junit.ResourceTestRule;
-import io.emccarthy.clientservice.api.Expression;
-import io.emccarthy.clientservice.api.ExpressionResult;
 import io.emccarthy.clientservice.function.FunctionServiceInterface;
 import io.emccarthy.clientservice.function.exception.FunctionServiceConnectionException;
 import io.emccarthy.clientservice.function.exception.FunctionServiceResponseException;
+import io.emccarthy.common.api.Expression;
+import io.emccarthy.common.api.ExpressionResult;
 import org.junit.Rule;
 import org.junit.Test;
-import org.mockito.invocation.InvocationOnMock;
-import org.mockito.stubbing.Answer;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.WebApplicationException;

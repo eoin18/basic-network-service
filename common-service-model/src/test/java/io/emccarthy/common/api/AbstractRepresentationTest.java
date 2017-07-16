@@ -1,4 +1,4 @@
-package io.emccarthy.clientservice.api;
+package io.emccarthy.common.api;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.dropwizard.jackson.Jackson;

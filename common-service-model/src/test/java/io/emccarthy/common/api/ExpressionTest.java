@@ -1,4 +1,4 @@
-package io.emccarthy.clientservice.api;
+package io.emccarthy.common.api;
 
 public class ExpressionTest extends AbstractRepresentationTest<Expression> {
 

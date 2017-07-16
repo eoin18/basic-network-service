@@ -5,15 +5,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.google.common.base.Preconditions;
 import io.dropwizard.jackson.Jackson;
-import io.emccarthy.clientservice.api.Expression;
-import io.emccarthy.clientservice.api.ExpressionResult;
 import io.emccarthy.clientservice.function.exception.FunctionServiceConnectionException;
 import io.emccarthy.clientservice.function.exception.FunctionServiceResponseException;
+import io.emccarthy.common.api.Expression;
+import io.emccarthy.common.api.ExpressionResult;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
+import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.message.BasicHeader;
 
@@ -38,17 +39,17 @@ public class OnlineFunctionServiceInterface implements FunctionServiceInterface 
 
     @Override
     public ExpressionResult performExpression(Expression expression) throws FunctionServiceConnectionException, FunctionServiceResponseException {
-        String url = this.hostName + (this.port == 0 ? "" : ":" + String.valueOf(this.port));
+        String url = "http://" + this.hostName + (this.port == 0 ? "" : ":" + String.valueOf(this.port));
         HttpPost post = new HttpPost(url);
         post.setHeader(new BasicHeader("Accept", MediaType.APPLICATION_JSON));
         StringEntity entity;
         try {
-            entity = new StringEntity(OBJECT_MAPPER.writeValueAsString(expression));
-        } catch (UnsupportedEncodingException | JsonProcessingException e) {
+            String expressionAsString = OBJECT_MAPPER.writeValueAsString(expression);
+            entity = new StringEntity(expressionAsString, ContentType.APPLICATION_JSON);
+        } catch (JsonProcessingException e) {
             String message = "Unable to serialize request for function server";
             throw handleResponseException(message, e);
         }
-        entity.setContentEncoding(new BasicHeader("Content-type", MediaType.APPLICATION_JSON));
         post.setEntity(entity);
         HttpResponse response;
         try {
@@ -58,7 +59,7 @@ public class OnlineFunctionServiceInterface implements FunctionServiceInterface 
             LOG.error(message, e);
             throw new FunctionServiceConnectionException(message, e);
         }
-        if(response.getStatusLine().getStatusCode() != 200) {
+        if(response.getStatusLine().getStatusCode() != 201) {
             String message = "HTTP response error from Function server with status code: [" + response + "] for request: [" + expression + "]";
             throw new FunctionServiceResponseException(message);
         }

@@ -1,11 +1,11 @@
 package io.emccarthy.clientservice.resources;
 
 import com.google.common.base.Preconditions;
-import io.emccarthy.clientservice.api.Expression;
-import io.emccarthy.clientservice.api.ExpressionResult;
 import io.emccarthy.clientservice.function.FunctionServiceInterface;
 import io.emccarthy.clientservice.function.exception.FunctionServiceConnectionException;
 import io.emccarthy.clientservice.function.exception.FunctionServiceResponseException;
+import io.emccarthy.common.api.Expression;
+import io.emccarthy.common.api.ExpressionResult;
 
 import javax.ws.rs.BadRequestException;
 import javax.ws.rs.GET;
