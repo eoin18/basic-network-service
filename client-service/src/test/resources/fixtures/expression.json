@@ -1,0 +1,5 @@
+{
+  "leftOperand" : 123,
+  "rightOperand" : 321,
+  "operator": "*"
+}
